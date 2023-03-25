@@ -18,10 +18,10 @@ router.post("/login", async(req,res) =>{
     if(passwordOK){
         jwt.sign({email, id: userDoc._id}, secret, {}, (err, token) => {
             if(err) throw err;
-            res.cookie('token', token).json({
-                id: userDoc._id,
-                email
-            });
+          res.status(200).cookie('token',token).json({
+            id:userDoc._id,
+            email
+          })
         });
     }else{
         res.status(400).json('Invalid Credentials');
