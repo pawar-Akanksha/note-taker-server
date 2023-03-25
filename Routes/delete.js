@@ -8,7 +8,6 @@ const router = express.Router();
 router.use(express.json());
 router.use(cookieParser());
 
-
 router.post('/delete',async(req,res)=>{
     const {token} = req.cookies;
     jwt.verify(token,secret,{},async (err,info)=>{
